@@ -1,0 +1,14 @@
+{# generic modal doc test bed #}
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container">
+{% if title %}
+    <h2 class="title">{{ title }}</h2>
+{% endif %}
+{# use a modal to wrap a generic doc #}
+{{ doc | dict2html(hideblanks=True) | safe}}
+<hr>
+{{ doc | dict2html | modal_wrapper | safe }}
+</div>
+{% endblock %}

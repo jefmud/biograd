@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+{# use a schema approach to displaying student info #}
+<h2 class="title">All Students</h2>
+<table class="table table-striped">
+{% for doc in docs %}
+        <tr>
+        <td><a href="{{url_for('student_view', sid=doc.DEMOG_3_TEXT)}}">{{doc.DEMOG_3_TEXT}}</a></td>
+        <td>{{doc.DEMOG_2_TEXT}}</td>
+        <td>{{doc.DEMOG_1_TEXT}}</td>
+        <td>{{doc.DEMOG_5_TEXT}}</td>
+        <td>{{doc.DEG}}</td>
+        </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

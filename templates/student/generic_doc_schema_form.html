@@ -1,0 +1,15 @@
+{# generic modal doc with schema edit modal bed #}
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container">
+{% if title %}
+    <h2 class="title">{{ title }}</h2>
+    <hr>
+{% endif %}
+{# use a modal to wrap a generic doc #}
+{{ doc | dict2html(hideblanks=True, schema=schema) | safe}}
+<hr>
+{{ doc | dict2form_schema(schema=schema, method="post") | modal_wrapper(title="Edit",open_button="Edit",footer_button="") | safe }}
+</div>
+{% endblock %}

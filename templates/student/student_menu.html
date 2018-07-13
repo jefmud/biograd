@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+<h2 class="title">Actions</h2>
+<ul>
+<li><a href="{{ url_for('students_all') }}">All Students</a></li>
+<li><a href="{{ url_for('advisors_all') }}">All Advisors</a></li>
+<li><a href="">Reports</a></li>
+<li><a href="{{ url_for('demographics_all')}}">Dump all Demographic Records to Screen</a></li>
+<li><a href="{{ url_for('advisors_update')}}">Update Advisors based on Student Records</a></li>
+<li><a href="{{ url_for('progress_pull') }}">Load Progress Responses</a></li>
+<li><a href="{{ url_for('demographics_pull') }}">Load New Demographic Responses</a></li>
+<li><a href="">something else</a></li>
+</ul>
+</div>
+{% endblock %}

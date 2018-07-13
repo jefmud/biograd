@@ -1,0 +1,15 @@
+{# Generic output of a list of documents #}
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container">
+{% if title %}
+    <h2 class="title">{{ title }}</h2>
+{% endif %}
+{# use a schema approach to displaying student info #}
+{% for doc in docs %}
+<hr>
+{{ doc | dict2html | safe}}
+{% endfor %}
+</div>
+{% endblock %}

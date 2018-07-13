@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+<h2 class="title">Basic Demographics</h2>
+{# use a schema approach to displaying student info #}
+{{ doc | dict2form_schema(schema) | safe}}
+<hr>
+<h3 class="title">Advisors</h3>
+<ol>
+{% for advisor in advisors %}
+    <li><a href="{{ url_for('advisor_update', id=advisor._id) }}">{{advisor.lastname}}, {{advisor.firstname}}</a></li>
+{% endfor %}
+</ol>
+<hr>
+<h3 class="title">Progress Reports</h3>
+<ol>
+{% for progress_report in progress_reports %}
+    <li><a href="{{ url_for('progress_view', id=progress_report._id) }}">{{ progress_report.StartDate }}</a></li>
+{% endfor %}
+</ol>
+</div>
+{% endblock %}
